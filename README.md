@@ -1,25 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>ac-react-calculator</h1>
 
-## Available Scripts
+A React calculator built with [React.js](https://github.com/facebook/react), [emotion](https://github.com/emotion-js/emotion) and [hooks](https://reactjs.org/docs/hooks-intro.html).</p> I've used [this calculator design concept](https://www.uplabs.com/posts/calculator-animation-icons) which is designed by Maximiliano Catani.
 
-In the project directory, you can run:
+## Live Demo
 
-### `npm start`
+You can test on https://ac-react-calculator.netlify.com
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Preview
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+![Preview](screenshot.jpg)
 
-### `npm test`
+## Running Locally
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repo
+2. Type `cd ac-react-calculator` to enter the project folder
+3. Run `npm install` and install dependencies
+4. Run `npm start` and visit [localhost:3000](http://localhost:3000)
 
-### `npm run build`
+## Build
 
-Builds the app for production to the `build` folder.<br>
+1. Run `npm run build`
+1. The compiled version will be in `/build/`
+
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>
@@ -27,7 +29,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Eject
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
