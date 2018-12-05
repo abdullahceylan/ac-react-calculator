@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FitText from 'react-textfit';
 import { ScreenWrapper } from './Screen.styles';
 
 const Screen = ({ currentNumber, isAnimated }) => (
   <ScreenWrapper isAnimated={isAnimated}>
-    {currentNumber}
+    <FitText mode="single">{currentNumber}</FitText>
   </ScreenWrapper>
 );
 

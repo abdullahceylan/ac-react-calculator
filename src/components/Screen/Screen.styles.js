@@ -19,6 +19,7 @@ export const ScreenWrapper = styled.div`
   margin: 4px 0 22px;
   width: 100%;
   height: auto;
+  min-height: 136px;
   overflow: hidden;
   word-wrap: break-word;
   text-align: right;

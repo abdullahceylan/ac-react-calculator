@@ -7,7 +7,7 @@ export const CalculatorWrapper = styled.div`
   margin: 20px auto;
   min-height: 600px;
   border-radius: 25px;
-  padding: 50px 29px 20px;
+  padding: 0 29px 20px;
   color: #fff;
   font-size: 20px;
   background-color: #071153;
