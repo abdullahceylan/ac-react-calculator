@@ -11,7 +11,7 @@ export const CalculatorWrapper = styled.div`
   padding: 0 29px 20px;
   color: #fff;
   font-size: 20px;
-  background-color: #071153;
+  background-color: #1f235f;
   background: linear-gradient(
     222deg,
     rgba(66, 73, 124, 1) 35%,

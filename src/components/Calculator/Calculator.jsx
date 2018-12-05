@@ -22,10 +22,10 @@ const Calculator = () => {
 
   const getButtonValues = (type = 'left') => {
     const colors = {
-      orange: '#ff8d3a',
-      orangeLinear: 'linear-gradient(to bottom, #ff8d3a, #fd6c1b)',
-      pink: '#fd2283',
-      pinkLinear: 'linear-gradient(to bottom, #fd2283, #fb0f4c)',
+      orange: '#f68966',
+      orangeLinear: 'linear-gradient(to bottom, #f68966, #fd6c1b)',
+      pink: '#f43163',
+      pinkLinear: 'linear-gradient(to bottom, #f43163, #fb0f4c)',
       red: '#fb155D', 
     };
   
