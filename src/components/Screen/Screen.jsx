@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ScreenWrapper } from './Screen.styles';
 
-const Screen = ({ currentNumber }) => (
-  <ScreenWrapper>
+const Screen = ({ currentNumber, isAnimated }) => (
+  <ScreenWrapper isAnimated={isAnimated}>
     {currentNumber}
   </ScreenWrapper>
 );
@@ -13,10 +13,12 @@ Screen.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  isAnimated: PropTypes.bool,
 };
 
 Screen.defaultProps = {
   currentNumber: '0',
+  isAnimated: false,
 };
 
 export default Screen;

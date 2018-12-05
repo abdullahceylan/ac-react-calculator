@@ -13,12 +13,12 @@ const fadeInRight = keyframes`
   }
 `;
 
-export const ScreenWrapper = styled.div`
+export const LastOperationWrapper = styled.div`
   display: block;
-  font-size: 101px;
-  margin: 4px 0 22px;
+  font-size: 40px;
+  margin: 60px 0 0px;
   width: 100%;
-  height: auto;
+  height: 40px;
   overflow: hidden;
   word-wrap: break-word;
   text-align: right;

@@ -16,6 +16,7 @@ export const CalculatorWrapper = styled.div`
     rgba(66, 73, 124, 1) 35%,
     rgba(26, 30, 90, 1) 84%
   );
+  box-shadow: 7px 54px 118px 0 #1f1d1d;
 `;
 
 export const ButtonList = styled.div``;
