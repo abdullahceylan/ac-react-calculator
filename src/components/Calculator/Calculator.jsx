@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import Screen from '../Screen';
 import LastOperation from '../LastOperation';
 import Button from '../Button';
@@ -14,20 +14,13 @@ import {
   ButtonContainer,
 } from './Calculator.styles';
 
-class Calculator extends PureComponent {
-  constructor(props) {
-    super(props);
+const Calculator = () => {
+  const [lastOperation, setLastOperation] = useState('');
+  const [currentNumber, setCurrentNumber] = useState('0');
+  const [operatorFlag , setOperatorFlag] = useState(false);
+  const [decimalFlag, setDecimalFlag] = useState(false);
 
-    this.state = {
-      currentNumber: '0',
-      operatorFlag: false,
-      decimalFlag: false,
-      animateNumber: false,
-      lastProcess: '',
-    }
-  }
-
-  getButtonValues = (type = 'left') => {
+  const getButtonValues = (type = 'left') => {
     const colors = {
       orange: '#ff8d3a',
       orangeLinear: 'linear-gradient(to bottom, #ff8d3a, #fd6c1b)',
@@ -67,16 +60,7 @@ class Calculator extends PureComponent {
     return values[type];
   }
 
-  handleButtonClick = (buttonValue) => {
-		console.log("​Calculator -> handleButtonClick -> button", buttonValue)
-    // const buttonValue = button.value;
-    let lastOperation = this.state.lastOperation;
-    let currentNumber = this.state.currentNumber;
-    let operatorFlag = this.state.operatorFlag;
-    let decimalFlag = this.state.decimalFlag;
-    let animateNumber = false;
-  
-    // console.log('buttonValue', buttonValue);
+  const handleButtonClick = (buttonValue) => {
     switch (buttonValue) {
       case '0':
       case '1':
@@ -88,11 +72,11 @@ class Calculator extends PureComponent {
       case '7':
       case '8':
       case '9': {
-        if (this.state.currentNumber !== '0') {
-          currentNumber += buttonValue;
-          operatorFlag = false;
+        if (currentNumber !== '0') {
+          setCurrentNumber(currentNumber + buttonValue);
+          setOperatorFlag(false);
         } else {
-          currentNumber = buttonValue;
+          setCurrentNumber(buttonValue);
         }
         break;
       }
@@ -101,81 +85,74 @@ class Calculator extends PureComponent {
       case '-':
       case '/':
       case '%': {
-        if (!this.state.operatorFlag) {
-          currentNumber += buttonValue;
-          operatorFlag = buttonValue;
+        if (!operatorFlag) {
+          setCurrentNumber(currentNumber + buttonValue);
+          setOperatorFlag(buttonValue);
         } else {
           const newNumber = currentNumber.slice(0, currentNumber.length-1);
-          currentNumber = newNumber + buttonValue;
+          setCurrentNumber(newNumber + buttonValue);
         }
         break;
       }
       case 'C':
-        lastOperation = '';
-        currentNumber = '0';
+        setLastOperation('');
+        setCurrentNumber('0');
         break;
       case '=':
-        lastOperation = currentNumber;
-        currentNumber = currentNumber.includes('.') ? eval(currentNumber).toFixed(2) : eval(currentNumber);
+        setLastOperation(currentNumber);
+        const result = currentNumber.includes('.') ? eval(currentNumber).toFixed(2) : eval(currentNumber);
+        setCurrentNumber(result);
         
         break;
       case '.':
-        if (!this.state.decimalFlag) {
-          currentNumber += '.';
-          decimalFlag = true;
+        if (!decimalFlag) {
+          setCurrentNumber(currentNumber + '.');
+          setDecimalFlag(true);
         }
         break;
       case '←':
         const newNumber = currentNumber.length > 1 ? currentNumber.slice(0, currentNumber.length-1) : '0';
-        currentNumber = newNumber;
-        // lastOperation = currentNumber === '0' ? '' : lastOperation;
+        setCurrentNumber(newNumber);
         break;
       default:
         break;
     }
-
-    animateNumber = true;
-    
-    this.setState({ currentNumber, operatorFlag, decimalFlag, animateNumber, lastOperation });
-
   }
   
-  render() {
-    return (
-      <CalculatorWrapper>
-        <MenuButtonLink href="https://github.com/abdullahceylan/ac-react-calculator" title="Source Code" target="_blank">
-          <MenuButton src={MenuImage} alt="menu button" />
-        </MenuButtonLink>
-        <LastOperation operation={this.state.lastOperation} />
-        <Screen currentNumber={this.state.currentNumber} isAnimated={this.state.animateNumber} />
-        <ButtonList>
-          <Row>
+  return (
+    <CalculatorWrapper>
+      <MenuButtonLink href="https://github.com/abdullahceylan/ac-react-calculator" title="Source Code" target="_blank">
+        <MenuButton src={MenuImage} alt="menu button" />
+      </MenuButtonLink>
+      <LastOperation operation={lastOperation} />
+      <Screen currentNumber={currentNumber} isAnimated={false} />
+      <ButtonList>
+        <Row>
+          <ButtonContainer>
+            { getButtonValues('top').map(b => (
+              <Button key={b.id} {...b} onClick={() => handleButtonClick(b.value)} />
+            ))}
+          </ButtonContainer>
+        </Row>
+        <Row>
+          <Left>
             <ButtonContainer>
-              { this.getButtonValues('top').map(b => (
-                <Button key={b.id} {...b} onClick={() => this.handleButtonClick(b.value)} />
+              { getButtonValues('left').map(b => (
+                <Button key={b.id} {...b} onClick={() => handleButtonClick(b.value)} />
               ))}
             </ButtonContainer>
-          </Row>
-          <Row>
-            <Left>
-              <ButtonContainer>
-                { this.getButtonValues('left').map(b => (
-                  <Button key={b.id} {...b} onClick={() => this.handleButtonClick(b.value)} />
-                ))}
-              </ButtonContainer>
-            </Left>
-            <Right marginLeft="11px">
-              <ButtonContainer>
-                { this.getButtonValues('right').map(b => (
-                  <Button key={b.id} {...b} onClick={() => this.handleButtonClick(b.value)} noMargin />
-                ))}
-              </ButtonContainer>
-            </Right>
-          </Row>
-        </ButtonList>
-      </CalculatorWrapper>
-    )
-  }
+          </Left>
+          <Right marginLeft="11px">
+            <ButtonContainer>
+              { getButtonValues('right').map(b => (
+                <Button key={b.id} {...b} onClick={() => handleButtonClick(b.value)} noMargin />
+              ))}
+            </ButtonContainer>
+          </Right>
+        </Row>
+      </ButtonList>
+    </CalculatorWrapper>
+  );
 }
 
 export default Calculator;

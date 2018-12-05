@@ -5,8 +5,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.1",
     "@emotion/styled": "^10.0.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "react-scripts": "2.1.1",
     "react-textfit": "^1.1.0",
     "typeface-nunito": "^0.0.54"
