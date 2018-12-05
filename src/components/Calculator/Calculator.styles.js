@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const CalculatorWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -18,6 +19,15 @@ export const CalculatorWrapper = styled.div`
   );
   box-shadow: 7px 54px 118px 0 #1f1d1d;
 `;
+
+export const MenuButtonLink = styled.a`
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  text-decoration: none;
+`;
+
+export const MenuButton = styled.img``;
 
 export const ButtonList = styled.div``;
 export const Row = styled.div`

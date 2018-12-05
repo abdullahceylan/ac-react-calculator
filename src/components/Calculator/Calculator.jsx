@@ -2,8 +2,11 @@ import React, { PureComponent } from 'react';
 import Screen from '../Screen';
 import LastOperation from '../LastOperation';
 import Button from '../Button';
+import MenuImage from '../../menu.svg';
 import {
   CalculatorWrapper,
+  MenuButtonLink,
+  MenuButton,
   ButtonList,
   Row,
   Left,
@@ -140,6 +143,9 @@ class Calculator extends PureComponent {
   render() {
     return (
       <CalculatorWrapper>
+        <MenuButtonLink href="https://github.com/abdullahceylan/ac-react-calculator" title="Source Code" target="_blank">
+          <MenuButton src={MenuImage} alt="menu button" />
+        </MenuButtonLink>
         <LastOperation operation={this.state.lastOperation} />
         <Screen currentNumber={this.state.currentNumber} isAnimated={this.state.animateNumber} />
         <ButtonList>
