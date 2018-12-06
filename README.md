@@ -9,6 +9,7 @@ You can test on https://ac-react-calculator.netlify.com
 ## Preview
 
 ![Preview](screenshot.jpg)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabdullahceylan%2Fac-react-calculator.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabdullahceylan%2Fac-react-calculator?ref=badge_shield)
 
 ## Running Locally
 
@@ -44,3 +45,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabdullahceylan%2Fac-react-calculator.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabdullahceylan%2Fac-react-calculator?ref=badge_large)
